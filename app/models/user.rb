@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  enum role: %i[user admin]
   MAX_NAME = 50
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

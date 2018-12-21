@@ -1,0 +1,8 @@
+%h3.text-center All users
+.row
+  - @users.each do |user|
+    .col-md-3
+      .card.mt-3
+        .card-body
+          %h4= user.name
+          %p= user.email
