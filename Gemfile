@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap'
 gem 'devise'
-gem 'haml'
+gem 'hamlit'
 gem 'simple_form'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -44,8 +44,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'faker'
+  gem 'factory_bot_rails', require: false
+  gem 'faker', require: false
 end
 
 group :development do
@@ -64,7 +64,6 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'shoulda-matchers'
-  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
