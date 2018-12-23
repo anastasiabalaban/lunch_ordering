@@ -9,5 +9,6 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'shared/navbar'
-    .container
+    .container.mt-2
+      = render 'shared/flash_messages'
       = yield
