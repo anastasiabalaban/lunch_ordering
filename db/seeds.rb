@@ -1,6 +1,6 @@
 params = {
   name: 'Admin',
-  role: 'admin',
+  role: User::ADMIN,
   email: ENV['ADMIN_EMAIL'],
   password: ENV['ADMIN_PASSWORD'],
   password_confirmation: ENV['ADMIN_PASSWORD']

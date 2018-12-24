@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
   def index
-    @facade = ::Users::Index.new
+    @users = ::Users::Index.new.users
   end
 end

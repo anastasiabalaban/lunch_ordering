@@ -3,7 +3,7 @@
 module Users
   class Index
     def users
-      @users ||= User.where(role: :user)
+      @users ||= User.where(role: User::USER)
     end
   end
 end
