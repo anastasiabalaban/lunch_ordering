@@ -1,0 +1,4 @@
+- flash.each do |message_type, message|
+  %div{ class: "alert alert-#{message_type == 'notice' ? 'success' : 'info'}" }
+    %a.close{ 'data-dismiss': 'alert', href: '#' } ×
+    #{message}

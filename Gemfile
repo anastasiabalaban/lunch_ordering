@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap'
 gem 'devise'
+gem 'dotenv-rails'
 gem 'hamlit'
 gem 'simple_form'
 
