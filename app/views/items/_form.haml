@@ -1,0 +1,6 @@
+= simple_form_for @item do |f|
+  = f.input :name
+  = f.input :meal_type, as: :radio_buttons, collection: %w[first main drink]
+  = f.input :price, input_html: { min: 0 }
+  = f.button :submit, class: 'btn btn-outline-success mb-2'
+= link_to t('.back'), :back, class: 'btn btn-light mt-2'

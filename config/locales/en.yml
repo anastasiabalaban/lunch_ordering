@@ -5,8 +5,17 @@ en:
        log_in: Log in
        logged_in_as: logged in as %{user_email}
        log_out: Log out
+       menu: Menu
+       new_order: New order
        sign_up: Sign up
        users: Users
+  items:
+    index:
+      title: Menu
+      add_item: Add item
+    new:
+      title: Add new item to menu
+      back: << Back
   users:
     index:
       title: All users
