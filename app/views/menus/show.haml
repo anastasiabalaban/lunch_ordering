@@ -1,0 +1,5 @@
+%h3.text-center= @menu.name
+- @items.each do |item|
+  %p #{item.name} : #{item.price}
+  %hr
+= link_to t('.back'), :back, class: 'btn btn-light mt-2'

@@ -4,9 +4,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    # binding.pry
     @order = current_user.orders.new(order_params)
-    @order.items_orders.each { |e| e.price = e.item.price }
     if @order.save
       redirect_to root_path
     else

@@ -1,7 +1,7 @@
 %nav.navbar.navbar-light.bg-light.navbar-expand-lg
   .container
     %ul.navbar-nav
-      %li.nav-item= link_to t('.menu'), root_path, class: 'nav-link'
+      %li.nav-item= link_to t('.menus'), root_path, class: 'nav-link'
       %li.nav-item= link_to t('.new_order'), new_order_path, class: 'nav-link'
     %ul.navbar-nav.ml-auto
       - if user_signed_in?

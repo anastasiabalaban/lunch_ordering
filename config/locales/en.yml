@@ -5,7 +5,8 @@ en:
        log_in: Log in
        logged_in_as: logged in as %{user_email}
        log_out: Log out
-       menu: Menu
+       menus: Menus
+       today_menu: Today menu
        new_order: New order
        sign_up: Sign up
        users: Users
@@ -16,6 +17,13 @@ en:
     new:
       title: Add new item to menu
       back: << Back
+  menus:
+    index:
+      title: All menus
+      show: Show >>
+      add_today_menu: Add today menu
+    new:
+      title: New menu
   users:
     index:
       title: All users

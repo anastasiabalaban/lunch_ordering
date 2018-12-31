@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :load_item, only: %i[edit update destroy]
+  
   def index
     @items = Item.all
   end
