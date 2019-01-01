@@ -1,0 +1,8 @@
+= simple_form_for @menu do |f|
+  = f.input :name
+  %h6.font-weight-bold= t('.items')
+  = f.simple_fields_for :items_menus do |items_menu|
+    = render 'items_menu_fields', f: items_menu
+  .links
+    = link_to_add_association t('.add_item'), f, :items_menus, class: 'btn btn-sm btn-outline-success mt-2'
+  = f.button :submit, class: 'btn btn-outline-success mt-2'

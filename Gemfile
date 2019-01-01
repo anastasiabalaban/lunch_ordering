@@ -34,8 +34,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap'
+gem 'cocoon'
 gem 'devise'
 gem 'dotenv-rails'
+gem 'jquery-rails'
 gem 'hamlit'
 gem 'simple_form'
 

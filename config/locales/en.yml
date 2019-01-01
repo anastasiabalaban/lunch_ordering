@@ -24,6 +24,15 @@ en:
       add_today_menu: Add today menu
     new:
       title: New menu
+    form:
+      items: 'Items:'
+      add_item: Add item
+    items_menu_fields:
+      choose_existing_item: Choose an existing item
+      create_new_item: create new item
+      remove_item: remove item
+    item_fields:
+      remove_item: remove item
   users:
     index:
       title: All users
