@@ -5,10 +5,11 @@ class Item < ApplicationRecord
     drink: DRINK = 'drink'
   }
 
-  has_many :items_menus, inverse_of: :item
-  has_many :menus, through: :items_menus
-  has_many :items_orders
-  has_many :orders, through: :items_orders
+  has_many :meals, inverse_of: :item
+  has_many :menus, through: :meals
+
+  has_many :meals_orders
+  has_many :orders, through: :meals_orders
 
   validates :name, :price, :meal_type, presence: true
   validates :price, numericality: { greater_than: 0 }

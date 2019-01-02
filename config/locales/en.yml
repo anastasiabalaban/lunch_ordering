@@ -6,6 +6,7 @@ en:
        logged_in_as: logged in as %{user_email}
        log_out: Log out
        menus: Menus
+       items: Items
        today_menu: Today menu
        new_order: New order
        sign_up: Sign up
@@ -22,12 +23,17 @@ en:
       title: All menus
       show: Show >>
       add_today_menu: Add today menu
+    show:
+      first_meals: 'First meals:'
+      main_meals: 'Main meals:'
+      drinks: 'Drinks:'
+      back: << Back
     new:
       title: New menu
     form:
       items: 'Items:'
       add_item: Add item
-    items_menu_fields:
+    meal_fields:
       choose_existing_item: Choose an existing item
       create_new_item: create new item
       remove_item: remove item

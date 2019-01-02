@@ -18,26 +18,19 @@ ActiveRecord::Schema.define(version: 2018_12_29_141829) do
     t.decimal "price", precision: 10
   end
 
-  create_table "items_menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "meals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id"
     t.bigint "menu_id"
-    t.index ["item_id"], name: "index_items_menus_on_item_id"
-    t.index ["menu_id"], name: "index_items_menus_on_menu_id"
-  end
-
-  create_table "items_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "item_id"
-    t.bigint "order_id"
     t.decimal "price", precision: 10
-    t.index ["item_id"], name: "index_items_orders_on_item_id"
-    t.index ["order_id"], name: "index_items_orders_on_order_id"
+    t.index ["item_id"], name: "index_meals_on_item_id"
+    t.index ["menu_id"], name: "index_meals_on_menu_id"
   end
 
-  create_table "menu_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "item_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_menu_items_on_item_id"
+  create_table "meals_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "meal_id"
+    t.bigint "order_id"
+    t.index ["meal_id"], name: "index_meals_orders_on_meal_id"
+    t.index ["order_id"], name: "index_meals_orders_on_order_id"
   end
 
   create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def new
     @order = Order.new
+    @menu = Menu.find_by('DATE(created_at) = ?', Date.today)
   end
 
   def create

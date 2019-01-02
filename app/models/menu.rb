@@ -1,7 +1,7 @@
 class Menu < ApplicationRecord
-  has_many :items_menus, inverse_of: :menu
-  has_many :items, through: :items_menus
+  has_many :meals, inverse_of: :menu
+  has_many :items, through: :meals
 
   accepts_nested_attributes_for :items
-  accepts_nested_attributes_for :items_menus, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :meals, reject_if: :all_blank, allow_destroy: true
 end

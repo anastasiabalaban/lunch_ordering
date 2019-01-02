@@ -3,6 +3,7 @@
     %ul.navbar-nav
       %li.nav-item= link_to t('.menus'), root_path, class: 'nav-link'
       %li.nav-item= link_to t('.new_order'), new_order_path, class: 'nav-link'
+      %li.nav-item= link_to t('.items'), items_path, class: 'nav-link'
     %ul.navbar-nav.ml-auto
       - if user_signed_in?
         - if current_user.admin?

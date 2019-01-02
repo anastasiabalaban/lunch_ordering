@@ -1,10 +1,9 @@
 .col-md-5.mx-auto
   %h3.text-center New order
   = simple_form_for @order do |f|
-    = f.simple_fields_for :first_meals do |fm|
-      = fm.input :name
+    = f.association :first_meals, collection: @menu.items.first_meal, as: :radio_buttons
     %hr
-    = f.association :main_meals, as: :radio_buttons
+    = f.association :main_meals, collection: @menu.items.main_meal, as: :radio_buttons
     %hr
-    = f.association :drinks, as: :radio_buttons
+    = f.association :drinks, collection: @menu.items.drink, as: :radio_buttons
     = f.button :submit, class: 'btn btn-outline-success mb-2'
