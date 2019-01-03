@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2018_12_29_141829) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "meal_type"
-    t.decimal "price", precision: 10
   end
 
   create_table "meals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

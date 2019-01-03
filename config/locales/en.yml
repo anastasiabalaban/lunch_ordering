@@ -13,7 +13,7 @@ en:
        users: Users
   items:
     index:
-      title: Menu
+      title: All items
       add_item: Add item
     new:
       title: Add new item to menu

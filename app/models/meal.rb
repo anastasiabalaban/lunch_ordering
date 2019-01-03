@@ -6,4 +6,6 @@ class Meal < ApplicationRecord
   has_many :orders, through: :meals_orders
 
   accepts_nested_attributes_for :item, reject_if: :all_blank
+  
+  validates :price, numericality: { greater_than: 0 }
 end

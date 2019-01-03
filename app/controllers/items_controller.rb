@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :load_item, only: %i[edit update destroy]
-  
+
   def index
     @items = Item.all
   end
@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to items_path
     else
       render 'new'
     end
@@ -40,6 +40,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :meal_type, :price)
+    params.require(:item).permit(:name, :meal_type)
   end
 end

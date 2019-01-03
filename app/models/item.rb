@@ -11,6 +11,5 @@ class Item < ApplicationRecord
   has_many :meals_orders
   has_many :orders, through: :meals_orders
 
-  validates :name, :price, :meal_type, presence: true
-  validates :price, numericality: { greater_than: 0 }
+  validates :name, :meal_type, presence: true
 end

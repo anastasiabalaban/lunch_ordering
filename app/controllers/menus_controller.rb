@@ -5,7 +5,7 @@ class MenusController < ApplicationController
 
   def show
     @menu = Menu.find_by(id: params[:id])
-    @items = @menu.items
+    @meals = @menu.meals.includes(:item)
   end
 
   def new
@@ -13,6 +13,7 @@ class MenusController < ApplicationController
   end
 
   def create
+    binding.pry
     @menu = Menu.new(menu_params)
     if @menu.save
       redirect_to root_path
@@ -25,7 +26,7 @@ class MenusController < ApplicationController
 
   def menu_params
     params.require(:menu).permit(:name,
-      meals_attributes: [:id, :_destroy, :item_id, 
-      item_attributes: [:id, :name, :meal_type, :price, :_destroy]])
+      meals_attributes: [:id, :_destroy, :item_id, :price,
+      item_attributes: [:id, :name, :meal_type, :_destroy]])
   end
 end
