@@ -1,9 +1,12 @@
 .col-md-5.mx-auto
-  %h3.text-center New order
+  %h3.text-center= t('.title')
   = simple_form_for @order do |f|
-    = f.association :first_meals, collection: @menu.items.first_meal, as: :radio_buttons
+    = f.association :first_meals, collection: @today_menu_meals.first_meals, as: :radio_buttons,
+      label_method: :select_label, value_method: :id
     %hr
-    = f.association :main_meals, collection: @menu.items.main_meal, as: :radio_buttons
+    = f.association :main_meals, collection: @today_menu_meals.main_meals, as: :radio_buttons,
+      label_method: :select_label, value_method: :id
     %hr
-    = f.association :drinks, collection: @menu.items.drink, as: :radio_buttons
+    = f.association :drinks, collection: @today_menu_meals.drinks, as: :radio_buttons,
+      label_method: :select_label, value_method: :id
     = f.button :submit, class: 'btn btn-outline-success mb-2'

@@ -1,5 +1,13 @@
 %h3.text-center= @menu.name
-%h6.font-weight-bold= t('.meals')
-- @meals.each do |meal|
+%h6.font-weight-bold= t('.first_meals')
+- @meals.first_meals.each do |meal|
+  %p #{meal.item.name} : #{number_to_currency(meal.price)}
+%hr
+%h6.font-weight-bold= t('.main_meals')
+- @meals.main_meals.each do |meal|
+  %p #{meal.item.name} : #{number_to_currency(meal.price)}
+%hr
+%h6.font-weight-bold= t('.drinks')
+- @meals.drinks.each do |meal|
   %p #{meal.item.name} : #{number_to_currency(meal.price)}
 = link_to t('.back'), :back, class: 'btn btn-light mt-2'
