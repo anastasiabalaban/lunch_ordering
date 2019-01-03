@@ -5,9 +5,9 @@ class Meal < ApplicationRecord
   has_many :meals_orders
   has_many :orders, through: :meals_orders
 
-  scope :first_meals, -> { joins(:item).where(items: { meal_type: :first_meal } ) }
-  scope :main_meals, -> { joins(:item).where(items: { meal_type: :main_meal } ) }
-  scope :drinks, -> { joins(:item).where(items: { meal_type: :drink } ) }
+  scope :first_meals, -> { joins(:item).where(items: { meal_type: :first_meal }) }
+  scope :main_meals, -> { joins(:item).where(items: { meal_type: :main_meal }) }
+  scope :drinks, -> { joins(:item).where(items: { meal_type: :drink }) }
 
   accepts_nested_attributes_for :item, reject_if: :all_blank
 
