@@ -17,6 +17,7 @@ en:
       add_item: Add item
     new:
       title: Add new item to menu
+    form:
       back: << Back
   menus:
     index:

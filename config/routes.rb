@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :users, only: %i[index]
-  resources :items
-  resources :menus
-  resources :orders
+  resources :items, except: %i[show]
+  resources :menus, only: %i[index show new create]
+  resources :orders, only: %i[new create]
 end

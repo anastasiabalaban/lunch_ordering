@@ -5,5 +5,5 @@
       %p= menu.name
       %p= menu.created_at.strftime('%d.%m.%Y')
       = link_to t('.show'), menu_path(menu)
-- if current_user.admin?
+- if current_user.admin? && !today_menu_exists?
   = link_to t('.add_today_menu'), new_menu_path, class: 'btn btn-outline-success mt-2'
