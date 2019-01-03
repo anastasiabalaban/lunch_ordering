@@ -13,7 +13,6 @@ class MenusController < ApplicationController
   end
 
   def create
-    binding.pry
     @menu = Menu.new(menu_params)
     if @menu.save
       redirect_to root_path

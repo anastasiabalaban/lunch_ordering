@@ -24,6 +24,7 @@ en:
       show: Show >>
       add_today_menu: Add today menu
     show:
+      meals: 'Meals:'
       first_meals: 'First meals:'
       main_meals: 'Main meals:'
       drinks: 'Drinks:'
@@ -33,6 +34,7 @@ en:
     form:
       items: 'Items:'
       add_item: Add item
+      back: << Back
     meal_fields:
       choose_existing_item: Choose an existing item
       create_new_item: create new item
