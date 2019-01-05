@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :load_item, only: %i[edit update destroy]
+  before_action :find_item, only: %i[edit update destroy]
 
   def index
     @items = Item.all
@@ -9,14 +9,12 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
-  def edit; end
-
   def create
     @item = Item.new(item_params)
     if @item.save
       redirect_to items_path
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -24,7 +22,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to items_path
     else
-      render 'edit'
+      render :edit
     end
   end
 
@@ -35,7 +33,7 @@ class ItemsController < ApplicationController
 
   private
 
-  def load_item
+  def find_item
     @item = Item.find_by(id: params[:id])
   end
 

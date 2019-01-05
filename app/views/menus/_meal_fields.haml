@@ -1,7 +1,7 @@
-.nested-fields.meal-fields
-  .item_from_list
+.nested-fields.js-meal-fields
+  .js-item-from-list
     = f.association :item, collection: Item.order(:name), prompt: t('.choose_existing_item'), label: false
-  = f.input :price, input_html: { min: 0 }
-  = link_to_add_association t('.create_new_item'), f, :item, class: 'btn btn-sm btn-outline-success add-item'
+  = f.input :price, input_html: { min: Meal::MIN_PRICE }
+  = link_to_add_association t('.create_new_item'), f, :item, class: 'btn btn-sm btn-outline-success js-add-item'
   = link_to_remove_association t('.remove_item'), f, class: 'btn btn-sm btn-outline-danger'
 %hr

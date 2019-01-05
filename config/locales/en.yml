@@ -1,4 +1,7 @@
 en:
+  layouts:
+    application:
+      title: Lunch Ordering
   shared:
     navbar:
        edit_profile: Edit profile

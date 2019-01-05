@@ -1,10 +1,4 @@
 %h3.text-center= t('.title')
 .row
-  - @items.each do |item|
-    .col-md-3
-      .card.mt-3
-        .card-body
-          %p #{item.name} (#{item.meal_type})
-          = link_to t('.edit'), edit_item_path(item)
-          = link_to t('.delete'), item_path(item), method: :delete
+  = render 'item', collection: @items, as: :item
 = link_to t('.add_item'), new_item_path, class: 'btn btn-outline-success mt-2'

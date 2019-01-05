@@ -1,7 +1,7 @@
 = simple_form_for @menu do |f|
   = f.input :name
   %h6.font-weight-bold= t('.items')
-  #items
+  #js-items
     = f.simple_fields_for :meals do |meal|
       = render 'meal_fields', f: meal
     .links
