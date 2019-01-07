@@ -1,8 +1,7 @@
 class OrdersController < ApplicationController
   def new
-    @order = Order.new
-    @today_menu_meals = Menu.find_by('DATE(created_at) = ?', Date.current)
-                            .meals.includes(:item)
+    @order = authorize Order.new
+    @facade = ::Orders::New.new
   end
 
   def create

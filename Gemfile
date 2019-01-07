@@ -36,9 +36,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap'
 gem 'cocoon'
 gem 'devise'
+gem 'draper'
 gem 'dotenv-rails'
 gem 'jquery-rails'
 gem 'hamlit'
+gem 'pundit'
 gem 'simple_form'
 
 # Reduces boot times through caching; required in config/boot.rb

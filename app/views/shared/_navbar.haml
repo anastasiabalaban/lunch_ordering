@@ -2,7 +2,7 @@
   .container
     %ul.navbar-nav
       %li.nav-item= link_to t('.menus'), root_path, class: 'nav-link'
-      - if today_menu_exists?
+      - if policy(Order.new).create?
         %li.nav-item= link_to t('.new_order'), new_order_path, class: 'nav-link'
     %ul.navbar-nav.ml-auto
       - if user_signed_in?

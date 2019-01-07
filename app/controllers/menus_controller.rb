@@ -1,15 +1,14 @@
 class MenusController < ApplicationController
   def index
-    @menus = Menu.all
+    @menus = Menu.all.decorate
   end
 
   def show
-    @menu = Menu.find_by(id: params[:id])
-    @meals = @menu.meals.includes(:item)
+    @facade = ::Menus::Show.new(params)
   end
 
   def new
-    @menu = Menu.new
+    @menu = authorize Menu.new
   end
 
   def create

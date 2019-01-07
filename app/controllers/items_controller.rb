@@ -2,20 +2,17 @@ class ItemsController < ApplicationController
   before_action :find_item, only: %i[edit update destroy]
 
   def index
-    @items = Item.all
+    @items = authorize Item.all
   end
 
   def new
-    @item = Item.new
+    @item = authorize ::Items::NewCreate.new.item
   end
 
   def create
-    @item = Item.new(item_params)
-    if @item.save
-      redirect_to items_path
-    else
-      render :new
-    end
+    @item = ::Items::NewCreate.new(item_params).item
+    redirect_to items_path if @item.valid?
+    render :new if @item.invalid?
   end
 
   def update
@@ -28,13 +25,14 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
+
     redirect_to items_path
   end
 
   private
 
   def find_item
-    @item = Item.find_by(id: params[:id])
+    @item = authorize Item.find_by(id: params[:id])
   end
 
   def item_params

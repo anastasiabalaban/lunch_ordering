@@ -1,4 +1,4 @@
 %h3.text-center= t('.title')
 .row
-  = render 'item', collection: @items, as: :item
+  = render 'item', collection: @items
 = link_to t('.add_item'), new_item_path, class: 'btn btn-outline-success mt-2'

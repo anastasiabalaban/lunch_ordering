@@ -14,8 +14,4 @@ class Meal < ApplicationRecord
   accepts_nested_attributes_for :item, reject_if: :all_blank
 
   validates :price, presence: true, numericality: { greater_than: MIN_PRICE }
-
-  def select_label
-    "#{item.name} : #{price}"
-  end
 end

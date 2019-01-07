@@ -1,13 +1,13 @@
-%h3.text-center= @menu.name
+%h3.text-center= @facade.menu_name
 %h6.font-weight-bold= t('.first_meals')
-- @meals.first_meals.each do |meal|
-  %p #{meal.item.name} : #{number_to_currency(meal.price)}
+- @facade.first_meals.each do |meal|
+  %p= meal.meal_name_and_price
 %hr
 %h6.font-weight-bold= t('.main_meals')
-- @meals.main_meals.each do |meal|
-  %p #{meal.item.name} : #{number_to_currency(meal.price)}
+- @facade.main_meals.each do |meal|
+  %p= meal.meal_name_and_price
 %hr
 %h6.font-weight-bold= t('.drinks')
-- @meals.drinks.each do |meal|
-  %p #{meal.item.name} : #{number_to_currency(meal.price)}
+- @facade.drinks.each do |meal|
+  %p= meal.meal_name_and_price
 = link_to t('.back'), :back, class: 'btn btn-light mt-2'
