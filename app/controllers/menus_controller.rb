@@ -4,20 +4,19 @@ class MenusController < ApplicationController
   end
 
   def show
-    @facade = ::Menus::Show.new(params)
+    @facade = ::Menus::Show.new(params[:id])
   end
 
   def new
-    @menu = authorize Menu.new
+    @menu = authorize ::Menus::NewCreate.new.new_menu
   end
 
   def create
-    @menu = Menu.new(menu_params)
-    if @menu.save
-      redirect_to root_path
-    else
-      render :new
-    end
+    @menu = ::Menus::NewCreate.new(menu_params).new_menu
+
+    return redirect_to root_path if @menu.valid?
+
+    render :new
   end
 
   private

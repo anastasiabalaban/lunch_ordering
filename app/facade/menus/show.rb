@@ -4,8 +4,8 @@ module Menus
   class Show
     delegate :name, to: :menu, prefix: true
 
-    def initialize(params = {})
-      @id = params[:id]
+    def initialize(id)
+      @id = id
     end
 
     def first_meals

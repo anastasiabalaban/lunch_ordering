@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-module Items
+module Menus
   class NewCreate
     def initialize(params = {})
       @params = params
     end
 
-    def new_item
+    def new_menu
       if params.empty?
-        @item ||= Item.new
+        @menu ||= Menu.new
       else
-        @item ||= Item.create(params)
+        @menu ||= Menu.create(params)
       end
     end
 

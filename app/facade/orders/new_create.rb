@@ -1,7 +1,20 @@
 # frozen_string_literal: true
 
 module Orders
-  class New
+  class NewCreate
+    def initialize(user = nil, params = {})
+      @user = user
+      @params = params
+    end
+
+    def new_order
+      if params.empty?
+        @order ||= Order.new
+      else
+        @order ||= user.orders.create(params)
+      end
+    end
+
     def first_meals
       @first_meals = today_menu_meals.first_meals.decorate
     end
@@ -15,6 +28,8 @@ module Orders
     end
 
     private
+
+    attr_reader :user, :params
 
     def today_menu
       @today_menu = Menu.find_by('DATE(created_at) = ?', Date.current)

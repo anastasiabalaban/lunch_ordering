@@ -42,6 +42,7 @@ gem 'jquery-rails'
 gem 'hamlit'
 gem 'pundit'
 gem 'simple_form'
+gem 'smart_init'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
