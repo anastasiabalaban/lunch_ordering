@@ -3,7 +3,7 @@
 module Orders
   class NewCreate
     def initialize(user = nil, params = {})
-      @user = user
+      @user   = user
       @params = params
     end
 
@@ -33,7 +33,8 @@ module Orders
 
     def today_menu_meals
       return Meal.none unless today_menu
-      @today_menu_meals = today_menu.meals.includes(:item)
+
+      today_menu.meals.includes(:item)
     end
   end
 end

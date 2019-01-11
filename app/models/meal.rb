@@ -7,9 +7,9 @@ class Meal < ApplicationRecord
   has_many :meals_orders
   has_many :orders, through: :meals_orders
 
-  scope :first_meals, -> { Orders::FirstMeals.call }
-  scope :main_meals,  -> { Orders::MainMeals.call }
-  scope :drinks,      -> { Orders::Drinks.call }
+  scope :first_meals, Orders::FirstMeals
+  scope :main_meals,  Orders::MainMeals
+  scope :drinks,      Orders::Drinks
 
   accepts_nested_attributes_for :item, reject_if: :all_blank
 

@@ -6,9 +6,12 @@ module Menus
       @params = params
     end
 
-    def new_menu
-      return @menu ||= Menu.new if params.empty?
-      @menu ||= Menu.create(params)
+    def menu
+      @menu ||= params.empty? ? Menu.new : Menu.create(params)
+    end
+
+    def ordered_names
+      Item.order(:name)
     end
 
     private

@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def new
     @facade = ::Orders::NewCreate.new
+    
     authorize @facade.order
   end
 

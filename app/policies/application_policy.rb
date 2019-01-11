@@ -5,14 +5,6 @@ class ApplicationPolicy
     @context  = context
   end
 
-  def new?
-    create?
-  end
-
-  def edit?
-    update?
-  end
-
   private
 
   attr_reader :user, :resource, :context
@@ -32,8 +24,10 @@ class ApplicationPolicy
   alias_method :index?,   :not_allowed
   alias_method :show?,    :not_allowed
   alias_method :create?,  :not_allowed
+  alias_method :new?,     :create?
   alias_method :update?,  :not_allowed
+  alias_method :edit?,    :update?
   alias_method :destroy?, :not_allowed
 
-  public :index?, :show?, :create?, :update?, :destroy?
+  public :index?, :show?, :new?, :create?, :edit?, :update?, :destroy?
 end

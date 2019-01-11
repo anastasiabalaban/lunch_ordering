@@ -8,14 +8,15 @@ class MenusController < ApplicationController
   end
 
   def new
-    @menu = ::Menus::NewCreate.new.new_menu
-    authorize @menu
+    @facade = ::Menus::NewCreate.new
+    
+    authorize @facade.menu
   end
 
   def create
-    @menu = ::Menus::NewCreate.new(menu_params).new_menu
+    @facade = ::Menus::NewCreate.new(menu_params).menu
 
-    return redirect_to root_path if @menu.valid?
+    return redirect_to root_path if @facade.valid?
 
     render :new
   end

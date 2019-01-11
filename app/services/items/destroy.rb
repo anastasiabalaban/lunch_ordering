@@ -2,6 +2,8 @@
 
 module Items
   class Destroy < ApplicationService
+    initialize_with :item
+    
     def call
       item.destroy if ::Items::AllowDestroy.call(item)
     end
