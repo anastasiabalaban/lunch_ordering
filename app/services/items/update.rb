@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
 module Items
-  class Update
-    extend SmartInit
-
+  class Update < ApplicationService
     initialize_with :item, :params
-    is_callable
 
     def call
       item.update(params)

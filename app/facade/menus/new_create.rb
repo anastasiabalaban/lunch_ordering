@@ -7,11 +7,8 @@ module Menus
     end
 
     def new_menu
-      if params.empty?
-        @menu ||= Menu.new
-      else
-        @menu ||= Menu.create(params)
-      end
+      return @menu ||= Menu.new if params.empty?
+      @menu ||= Menu.create(params)
     end
 
     private

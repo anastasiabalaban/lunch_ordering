@@ -3,15 +3,15 @@ class ItemsController < ApplicationController
   before_action :check_policy
 
   def index
-    @items = Item.all
+    @facade = ::Items::Index.new
   end
 
   def new
-    @item = ::Items::NewCreate.new.new_item
+    @item = ::Items::Create.call
   end
 
   def create
-    @item = ::Items::NewCreate.new(item_params).new_item
+    @item = ::Items::Create.call(item_params)
 
     return redirect_to items_path if @item.valid?
 
@@ -19,11 +19,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if ::Items::Update.call(item: @item, params: item_params)
-      redirect_to items_path
-    else
-      render :edit
-    end
+    @item_updated = ::Items::Update.call(item: @item, params: item_params)
+
+    return redirect_to items_path if @item_updated
+
+    render :new
   end
 
   def destroy

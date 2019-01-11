@@ -7,7 +7,7 @@ module Orders
       @params = params
     end
 
-    def new_order
+    def order
       if params.empty?
         @order ||= Order.new
       else
@@ -16,15 +16,15 @@ module Orders
     end
 
     def first_meals
-      @first_meals = today_menu_meals.first_meals.decorate
+      @first_meals ||= today_menu_meals.first_meals.decorate
     end
 
     def main_meals
-      @main_meals = today_menu_meals.main_meals.decorate
+      @main_meals ||= today_menu_meals.main_meals.decorate
     end
 
     def drinks
-      @drinks = today_menu_meals.drinks.decorate
+      @drinks ||= today_menu_meals.drinks.decorate
     end
 
     private
@@ -36,6 +36,7 @@ module Orders
     end
 
     def today_menu_meals
+      return Meal.none unless today_menu
       @today_menu_meals = today_menu.meals.includes(:item)
     end
   end

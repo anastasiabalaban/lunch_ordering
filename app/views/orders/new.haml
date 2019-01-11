@@ -1,6 +1,6 @@
 .col-md-5.mx-auto
   %h3.text-center= t('.title')
-  = simple_form_for @order do |f|
+  = simple_form_for @facade.order do |f|
     = f.association :first_meals, collection: @facade.first_meals, as: :radio_buttons,
       label_method: :meal_name_and_price, value_method: :id
     %hr

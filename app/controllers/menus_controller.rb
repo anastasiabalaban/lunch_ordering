@@ -1,14 +1,15 @@
 class MenusController < ApplicationController
   def index
-    @menus = Menu.all.decorate
+    @facade = ::Menus::Index.new(current_user)
   end
 
   def show
-    @facade = ::Menus::Show.new(params[:id])
+    @facade = ::Menus::Show.new(params)
   end
 
   def new
-    @menu = authorize ::Menus::NewCreate.new.new_menu
+    @menu = ::Menus::NewCreate.new.new_menu
+    authorize @menu
   end
 
   def create

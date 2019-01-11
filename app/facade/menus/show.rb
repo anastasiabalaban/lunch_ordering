@@ -2,22 +2,22 @@
 
 module Menus
   class Show
-    delegate :name, to: :menu, prefix: true
+    delegate :name, to: :menu, allow_nil: true, prefix: true
 
-    def initialize(id)
-      @id = id
+    def initialize(params)
+      @id = params[:id]
     end
 
     def first_meals
-      @first_meals = meals.first_meals.decorate
+      @first_meals ||= meals.first_meals.decorate
     end
 
     def main_meals
-      @main_meals = meals.main_meals.decorate
+      @main_meals ||= meals.main_meals.decorate
     end
 
     def drinks
-      @drinks = meals.drinks.decorate
+      @drinks ||= meals.drinks.decorate
     end
 
     private

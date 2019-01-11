@@ -1,7 +1,8 @@
-- @items.each do |item|
+- @facade.items.each do |item|
   .col-md-3
     .card.mt-3
       .card-body
         %p #{item.name} (#{item.meal_type})
         = link_to t('.edit'), edit_item_path(item)
-        = link_to t('.delete'), item_path(item), method: :delete
+        - if @facade.allowed_delete?(item)
+          = link_to t('.delete'), item_path(item), method: :delete

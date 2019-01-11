@@ -1,14 +1,9 @@
 # frozen_string_literal: true
 
 module Items
-  class Destroy
-    extend SmartInit
-
-    initialize_with :item
-    is_callable
-
+  class Destroy < ApplicationService
     def call
-      item.destroy
+      item.destroy if ::Items::AllowDestroy.call(item)
     end
   end
 end
