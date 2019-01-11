@@ -8,11 +8,7 @@ module Orders
     end
 
     def order
-      if params.empty?
-        @order ||= Order.new
-      else
-        @order ||= user.orders.create(params)
-      end
+      @order ||= params.empty? ? Order.new : user.orders.create(params)
     end
 
     def first_meals
