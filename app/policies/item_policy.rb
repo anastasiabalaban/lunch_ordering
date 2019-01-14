@@ -2,7 +2,7 @@ class ItemPolicy < ApplicationPolicy
   delegate :admin?, to: :user
 
   def destroy?
-    user.admin? && ::Items::AllowDestroy.call(resource)
+    user.admin? && ::Items::AllowDestroy.call(item: resource)
   end
 
   alias_method :index?,   :admin?

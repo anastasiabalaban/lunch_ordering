@@ -3,9 +3,9 @@
 module Items
   class Destroy < ApplicationService
     initialize_with :item
-    
+
     def call
-      item.destroy if ::Items::AllowDestroy.call(item)
+      item.destroy if ::Items::AllowDestroy.call(item: item)
     end
   end
 end

@@ -7,7 +7,7 @@ module Items
     end
 
     def allowed_delete?(item)
-      ::Items::AllowDestroy.call(item)
+      ::Items::AllowDestroy.call(item: item)
     end
   end
 end

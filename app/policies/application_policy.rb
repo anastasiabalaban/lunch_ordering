@@ -21,8 +21,8 @@ class ApplicationPolicy
     @current_menu ||= Menu.find_by(['DATE(created_at) = ?', Date.current])
   end
 
-  alias_method :index?,   :not_allowed
-  alias_method :show?,    :not_allowed
+  alias_method :index?,   :allowed
+  alias_method :show?,    :allowed
   alias_method :create?,  :not_allowed
   alias_method :new?,     :create?
   alias_method :update?,  :not_allowed
