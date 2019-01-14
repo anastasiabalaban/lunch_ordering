@@ -9,7 +9,7 @@ module Items
     end
 
     def call
-      !MealsOrder.joins(:meal).exists?(meals: { item: item })
+      !item.meals.includes(:meals_orders).any?
     end
   end
 end

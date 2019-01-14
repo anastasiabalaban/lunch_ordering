@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
 
     return redirect_to items_path if @item_updated
 
-    render :new
+    render :edit
   end
 
   def destroy

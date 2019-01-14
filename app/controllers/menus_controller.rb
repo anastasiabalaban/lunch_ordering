@@ -9,7 +9,7 @@ class MenusController < ApplicationController
 
   def new
     @facade = ::Menus::NewCreate.new
-    
+
     authorize @facade.menu
   end
 

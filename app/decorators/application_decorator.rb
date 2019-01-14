@@ -1,3 +1,3 @@
 class ApplicationDecorator < Draper::Decorator
- delegate_all
+  delegate_all
 end
