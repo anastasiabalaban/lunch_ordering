@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 describe MenuPolicy do
-  let(:menu) { create(:menu) }
-
   subject { described_class.new(user, menu) }
+
+  let(:menu) { create(:menu) }
 
   context 'being an admin' do
     let(:user) { create(:user, :admin) }

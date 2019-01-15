@@ -10,6 +10,6 @@ FactoryBot.define do
   end
 
   trait :today_menu do
-    created_at Date.current
+    created_at { Date.current }
   end
 end

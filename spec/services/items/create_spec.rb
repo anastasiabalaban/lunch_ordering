@@ -8,6 +8,5 @@ describe Items::Create do
   it 'creates an item' do
     described_class.call(params)
     expect(Item.find_by(name: params[:name])).to be_present
-    # expect { create_item }.to change(Item, :count).by(1)
   end
 end

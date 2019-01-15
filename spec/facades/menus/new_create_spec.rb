@@ -5,9 +5,9 @@ require 'rails_helper'
 describe Menus::NewCreate do
   describe '#menu' do
     context 'when params is not empty' do
-      let(:params) { attributes_for(:menu) }
-
       subject { described_class.new(params) }
+
+      let(:params) { attributes_for(:menu) }
 
       it 'creates menu' do
         subject.menu

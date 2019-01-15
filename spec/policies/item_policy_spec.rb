@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 describe ItemPolicy do
-  let(:item) { create(:item) }
-
   subject { described_class.new(user, item) }
+
+  let(:item) { create(:item) }
 
   context 'being an admin' do
     let(:user) { create(:user, :admin) }

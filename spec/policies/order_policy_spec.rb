@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 describe OrderPolicy do
-  let(:user) { create(:user) }
-
   subject { described_class.new(user, menu) }
+  
+  let(:user) { create(:user) }
 
   context 'when today menu exists' do
     let(:menu) { create(:menu, :today_menu) }
