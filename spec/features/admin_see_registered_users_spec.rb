@@ -11,7 +11,7 @@ feature 'Admin see registered users' do
     visit users_path
   end
 
-  scenario 'admin browses registered users' do
+  scenario 'admin can browse registered users' do
     expect(page).to have_content('All users')
     expect(page).to have_content(user.name)
     expect(page).to have_content(user.email)

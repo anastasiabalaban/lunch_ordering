@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe Menus::Index do
-  subject { described_class.new(admin) }
+  subject { described_class.new(admin).allowed_create? }
 
   let(:admin) { create(:user, :admin) }
 

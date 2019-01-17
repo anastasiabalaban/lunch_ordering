@@ -3,20 +3,20 @@
 require 'rails_helper'
 
 feature 'User signs in' do
-  context 'when user was registered' do
+  context 'when user was registered and sign in with correct email and password' do
     let(:user) { create(:user) }
 
-    scenario 'signing in with correct email and password' do
+    scenario 'user sign in successfully' do
       sign_in user
 
       expect(page).to have_content('Signed in successfully.')
     end
   end
 
-  context 'when user was not registered' do
+  context 'when user was not registered or sign in with invalid data' do
     let(:invalid_user) { build(:user) }
 
-    scenario 'signing in with invalid email and password' do
+    scenario 'user see warning flesh message' do
       sign_in invalid_user
 
       expect(page).to have_content('Invalid Email or password.')

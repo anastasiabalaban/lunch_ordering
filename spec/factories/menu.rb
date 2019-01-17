@@ -2,10 +2,10 @@
 
 FactoryBot.define do
   factory :menu do
-    name { Faker::Lorem.unique.word }
+    name       { Faker::Lorem.unique.word }
     created_at { Faker::Time.between(10.days.ago, 2.days.ago, :all) }
     after(:create) do |menu|
-      create_list(:meal, 10, menu: menu)
+      create_list(:meal, 7, menu: menu)
     end
   end
 

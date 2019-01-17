@@ -3,21 +3,24 @@
 require 'rails_helper'
 
 describe Orders::NewCreate do
+  subject { described_class.new(user, params).order }
+
+  let(:user) { create(:user) }
+
   describe '#order' do
     context 'when params is not empty' do
-      subject { described_class.new(user, params) }
-
-      let(:user) { create(:user) }
       let(:params) { attributes_for(:order) }
 
       it 'creates order' do
-        expect { subject.order }.to change { Order.count }.by(1)
+        expect { subject }.to change { Order.count }.by(1)
       end
     end
 
     context 'when params is empty' do
+      let(:params) { {} }
+
       it 'does not create order' do
-        expect { subject.order }.not_to change { Order.count }
+        expect { subject }.not_to change { Order.count }
       end
     end
   end

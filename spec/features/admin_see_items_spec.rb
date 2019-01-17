@@ -4,7 +4,7 @@ require 'rails_helper'
 
 feature 'Admin see items' do
   let!(:admin) { create(:user, :admin) }
-  let!(:item) { create(:item) }
+  let!(:item)  { create(:item) }
 
   before do
     sign_in admin
