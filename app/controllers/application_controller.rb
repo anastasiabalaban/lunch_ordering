@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
   def not_found
-    raise ActiveRecord::RecordNotFound.new('Not Found')
+    redirect_to root_path, alert: 'Not found'
   end
 end

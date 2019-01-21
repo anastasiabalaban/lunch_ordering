@@ -8,9 +8,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = ::Orders::NewCreate.new(current_user, order_params)
+    @facade = ::Orders::NewCreate.new(current_user, order_params)
 
-    return redirect_to root_path if @order.order.valid?
+    return redirect_to root_path if @facade.valid?
 
     render :new
   end

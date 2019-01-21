@@ -2,6 +2,8 @@
 
 module Menus
   class NewCreate
+    delegate :valid?, to: :menu, allow_nil: true
+
     def initialize(params = {})
       @params = params
     end

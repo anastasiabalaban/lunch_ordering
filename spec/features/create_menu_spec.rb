@@ -63,5 +63,16 @@ feature 'Create menu', js: true do
         expect(page).to have_content(item_name)
       end
     end
+
+    context 'empty menu name' do
+      let(:empty_name) { '' }
+
+      scenario 'menu is not created' do
+        fill_in 'Name', with: empty_name
+        click_button 'Create Menu'
+
+        expect(page).to have_content("Name can't be blank")
+      end
+    end
   end
 end

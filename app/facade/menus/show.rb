@@ -25,11 +25,11 @@ module Menus
     attr_reader :id
 
     def menu
-      @menu = Menu.find_by(id: id) || ApplicationController.new.not_found
+      @menu = Menu.find(id)
     end
 
     def meals
-      @meals = menu&.meals.includes(:item)
+      @meals = menu&.meals&.includes(:item)
     end
   end
 end

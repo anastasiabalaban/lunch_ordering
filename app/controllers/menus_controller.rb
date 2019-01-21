@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class MenusController < ApplicationController
+  before_action :check_policy
+
   def index
     @facade = ::Menus::Index.new(current_user)
   end
@@ -11,14 +13,12 @@ class MenusController < ApplicationController
 
   def new
     @facade = ::Menus::NewCreate.new
-
-    authorize @facade.menu
   end
 
   def create
     @facade = ::Menus::NewCreate.new(menu_params)
 
-    return redirect_to root_path if @facade.menu.valid?
+    return redirect_to root_path if @facade.valid?
 
     render :new
   end
@@ -36,5 +36,9 @@ class MenusController < ApplicationController
         item_attributes: %i[id name meal_type _destroy]
       ]
     )
+  end
+
+  def check_policy
+    authorize(@facade || Menu)
   end
 end

@@ -2,6 +2,8 @@
 
 module Orders
   class NewCreate
+    delegate :valid?, to: :order, allow_nil: true
+
     def initialize(user = nil, params = {})
       @user   = user
       @params = params
@@ -28,7 +30,7 @@ module Orders
     attr_reader :user, :params
 
     def today_menu
-      @today_menu = Menu.find_by('DATE(created_at) = ?', Date.current)
+      @today_menu = Menu.today_menu
     end
 
     def today_menu_meals

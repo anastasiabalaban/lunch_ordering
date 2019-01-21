@@ -20,7 +20,7 @@ class ApplicationPolicy
   end
 
   def current_menu
-    @current_menu ||= Menu.find_by(['DATE(created_at) = ?', Date.current])
+    @current_menu ||= Menu.today_menu
   end
 
   alias_method :index?,   :allowed

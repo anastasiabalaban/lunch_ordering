@@ -9,4 +9,8 @@ class Menu < ApplicationRecord
                                         allow_destroy: true
 
   validates :name, presence: true, uniqueness: true
+
+  def self.today_menu
+    find_by(['DATE(created_at) = ?', Date.current])
+  end
 end
