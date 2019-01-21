@@ -1,0 +1,10 @@
+= simple_form_for menu do |f|
+  = f.input :name
+  %h6.font-weight-bold= t('.items')
+  #js-items
+    = f.simple_fields_for :meals do |meal|
+      = render 'meal_fields', f: meal
+    .links
+      = link_to_add_association t('.add_item'), f, :meals, class: 'btn btn-sm btn-outline-success mt-2'
+    = f.button :submit, class: 'btn btn-outline-success mt-2'
+= link_to t('.back'), :back, class: 'btn btn-light mt-2'

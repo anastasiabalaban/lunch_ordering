@@ -1,0 +1,4 @@
+%h3.text-center= t('.title')
+.row
+  = render partial: 'item', collection: @facade.items, facade: @facade, locals: { facade: @facade }
+= link_to t('.add_item'), new_item_path, class: 'btn btn-outline-success mt-2'
