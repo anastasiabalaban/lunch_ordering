@@ -3,20 +3,18 @@
 require 'rails_helper'
 
 describe Menus::NewCreate do
-  subject { described_class.new(params).menu }
-
   describe '#menu' do
-    context 'when params is not empty' do
+    subject { described_class.new(params).menu }
+
+    context 'when params are not empty' do
       let(:params) { attributes_for(:menu) }
 
       it 'creates menu' do
-        subject
-
-        expect(Menu.find_by(name: params[:name])).to be_present
+        expect { subject }.to change { Menu.count }.by(1)
       end
     end
 
-    context 'when params is empty' do
+    context 'when params are empty' do
       let(:params) { {} }
 
       it 'does not create menu' do

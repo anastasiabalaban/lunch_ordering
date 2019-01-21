@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 params = {
   name: 'Admin',
   role: User::ADMIN,

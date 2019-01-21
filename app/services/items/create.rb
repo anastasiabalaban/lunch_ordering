@@ -9,7 +9,7 @@ module Items
     end
 
     def call
-      @item ||= params.empty? ? Item.new : Item.find_or_create_by(params)
+      @item ||= params.empty? ? Item.new : Item.create(params)
     end
   end
 end

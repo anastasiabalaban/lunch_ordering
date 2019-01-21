@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OrdersController < ApplicationController
   def new
     @facade = ::Orders::NewCreate.new

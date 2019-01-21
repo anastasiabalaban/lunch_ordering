@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Item < ApplicationRecord
   enum meal_type: {
     first_meal: FIRST_MEAL = 'first',

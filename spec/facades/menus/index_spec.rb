@@ -3,11 +3,23 @@
 require 'rails_helper'
 
 describe Menus::Index do
-  subject { described_class.new(admin).allowed_create? }
-
-  let(:admin) { create(:user, :admin) }
-
   describe '#allowed_create?' do
-    it { is_expected.to be_truthy }
+    subject { described_class.new(user).allowed_create? }
+
+    context 'when user is an admin' do
+      let(:user) { create(:user, :admin) }
+
+      it 'returns true' do
+        is_expected.to be_truthy
+      end
+    end
+
+    context 'when user is not an admin' do
+      let(:user) { create(:user) }
+
+      it 'returns false' do
+        is_expected.to be_falsy
+      end
+    end
   end
 end

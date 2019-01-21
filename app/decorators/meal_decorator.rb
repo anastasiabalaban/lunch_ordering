@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MealDecorator < ApplicationDecorator
   delegate :name, to: :item, allow_nil: true, prefix: true
 

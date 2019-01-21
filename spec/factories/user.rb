@@ -7,9 +7,9 @@ FactoryBot.define do
     email    { Faker::Internet.email }
     password { SecureRandom.base64(8) }
     password_confirmation { password }
-  end
 
-  trait :admin do
-    role { User::ADMIN }
+    trait :admin do
+      role { User::ADMIN }
+    end
   end
 end

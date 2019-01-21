@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Menu < ApplicationRecord
   has_many :meals, inverse_of: :menu
   has_many :items, through: :meals

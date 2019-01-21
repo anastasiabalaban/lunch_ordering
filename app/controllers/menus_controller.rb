@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MenusController < ApplicationController
   def index
     @facade = ::Menus::Index.new(current_user)

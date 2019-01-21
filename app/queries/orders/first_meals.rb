@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Orders
   class FirstMeals < OrderType
     private

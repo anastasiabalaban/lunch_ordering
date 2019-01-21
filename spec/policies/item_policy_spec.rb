@@ -13,7 +13,7 @@ describe ItemPolicy do
     it { is_expected.to permit_actions(%i[index new create edit update destroy]) }
 
     context 'when items exists in orders' do
-      let(:meal) { create(:meal, item: item) }
+      let(:meal)         { create(:meal, item: item) }
       let!(:meals_order) { create(:meals_order, meal: meal) }
 
       it { is_expected.to forbid_action(:destroy) }

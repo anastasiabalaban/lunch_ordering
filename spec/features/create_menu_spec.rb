@@ -3,47 +3,65 @@
 require 'rails_helper'
 
 feature 'Create menu', js: true do
-  let!(:admin) { create(:user, :admin) }
-  let!(:item) { create(:item) }
+  let(:admin)     { create(:user, :admin) }
+  let!(:item)     { create(:item) }
+  let(:menu_name) { Faker::Lorem.unique.word }
+  let(:price)     { Faker::Number.positive }
 
   before do
     sign_in admin
+
     visit new_menu_path
   end
 
-  context 'when admin creates menu with existing item' do
-    scenario 'menu is successfully created' do
-      fill_in 'Name', with: 'Today menu'
+  context 'when admin creates menu with...' do
+    context 'existing item' do
 
-      click_link 'Add item'
-      find('.menu_meals_item .select').find(:option, item.name).select_option
-      fill_in 'Price', with: 100
+      before do
+        fill_in 'Name', with: menu_name
 
-      click_button 'Create Menu'
+        click_link 'Add item'
+        find('.menu_meals_item .select').find(:option, item.name).select_option
+        fill_in 'Price', with: price
 
-      menu = Menu.find_by(name: 'Today menu')
-      expect(menu).to be_present
-      expect(menu.items).to include(item)
+        click_button 'Create Menu'
+
+        click_on 'Show >>'
+      end
+
+      scenario 'displays menu name' do
+        expect(page).to have_content(menu_name)
+      end
+
+      scenario 'displays item name' do
+        expect(page).to have_content(item.name)
+      end
     end
-  end
 
-  context 'when admin creates menu with new item' do
-    scenario 'menu and item is successfully created' do
-      fill_in 'Name', with: 'Menu name'
+    context 'new item' do
+      let(:item_name) { Faker::Food.unique.ingredient }
 
-      click_link 'Add item'
-      click_link 'create new item'
-      fill_in 'Price', with: 100
-      find('.js-meal-fields').fill_in 'Name', with: 'Item name'
-      choose('drink')
+      before do
+        fill_in 'Name', with: menu_name
 
-      click_button 'Create Menu'
+        click_link 'Add item'
+        click_link 'create new item'
+        fill_in 'Price', with: price
+        find('.js-meal-fields').fill_in 'Name', with: item_name
+        choose('drink')
 
-      menu = Menu.find_by(name: 'Menu name')
-      new_item = Item.find_by(name: 'Item name')
-      expect(menu).to be_present
-      expect(new_item).to be_present
-      expect(menu.items).to include(new_item)
+        click_button 'Create Menu'
+
+        click_on 'Show >>'
+      end
+
+      scenario 'displays menu name' do
+        expect(page).to have_content(menu_name)
+      end
+
+      scenario 'displays item name' do
+        expect(page).to have_content(item_name)
+      end
     end
   end
 end

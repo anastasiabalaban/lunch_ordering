@@ -3,40 +3,40 @@
 require 'rails_helper'
 
 feature 'Guest signs up' do
+  let(:name)         { Faker::Name.first_name }
+  let(:email)        { Faker::Internet.email }
+  let(:password)     { SecureRandom.base64(8) }
+  let(:invalid_data) { '' }
+
   context 'when user sign up with valid name, email and password' do
     scenario 'successful sign up' do
-      sign_up_with 'Name', 'valid@example.com', 'password'
+      sign_up_with name, email, password
 
       expect(page).to have_content('Welcome! You have signed up successfully.')
-      expect(page).to have_content('logged in as valid@example.com')
-      expect(page).to have_content('Log out')
     end
   end
 
   context 'when user sign up with invalid name' do
     scenario 'unsuccessful sign up' do
-      sign_up_with '', 'invalid_email', 'password'
+      sign_up_with invalid_data, email, password
 
       expect(page).to have_content("Name can't be blank")
-      expect(page).to have_content('Log in')
     end
   end
 
   context 'when user sign up with invalid email' do
     scenario 'unsuccessful sign up' do
-      sign_up_with 'Name', 'invalid_email', 'password'
+      sign_up_with name, invalid_data, password
 
-      expect(page).to have_content('Email is invalid')
-      expect(page).to have_content('Log in')
+      expect(page).to have_content("Email can't be blank")
     end
   end
 
   context 'when user sign up with blank password' do
     scenario 'unsuccessful sign up' do
-      sign_up_with 'Name', 'valid@example.com', ''
+      sign_up_with name, email, invalid_data
 
       expect(page).to have_content("Password can't be blank")
-      expect(page).to have_content('Log in')
     end
   end
 
