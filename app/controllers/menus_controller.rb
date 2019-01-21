@@ -16,9 +16,9 @@ class MenusController < ApplicationController
   end
 
   def create
-    @facade = ::Menus::NewCreate.new(menu_params).menu
+    @facade = ::Menus::NewCreate.new(menu_params)
 
-    return redirect_to root_path if @facade.valid?
+    return redirect_to root_path if @facade.menu.valid?
 
     render :new
   end

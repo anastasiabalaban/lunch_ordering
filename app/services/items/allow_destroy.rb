@@ -5,7 +5,7 @@ module Items
     initialize_with :item
 
     def call
-      item.meals.includes(:meals_orders).none?
+      !item.meals.includes(:meals_orders).any?
     end
   end
 end
