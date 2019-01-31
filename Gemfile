@@ -50,8 +50,8 @@ gem 'smart_init'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-  gem 'factory_bot_rails', require: false
-  gem 'faker', require: false
+  gem 'factory_bot_rails', require: true
+  gem 'faker', require: true
   gem 'pry-rails'
   gem 'rspec-rails'
 end

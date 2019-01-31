@@ -20,6 +20,15 @@ module Menus
       @drinks ||= meals.drinks.decorate
     end
 
+    def orders
+      @orders ||= Order.joins(:meals).includes(:user)
+                       .where(meals: { menu: menu }).decorate.uniq
+    end
+
+    def total_order_cost
+      orders.inject(0) { |cost, order| cost += order.count_total_cost }
+    end
+
     private
 
     attr_reader :id

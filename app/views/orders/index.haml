@@ -1,0 +1,11 @@
+%h3.text-center= t('.title')
+.row
+  - @orders.each do |order|
+    .col-md-3.d-flex
+      .card.mt-3.w-100.border-dark
+        .card-body
+          %small.text-muted= order.human_created_at
+          %ul
+            - order.meals.each do |meal|
+              %li= meal.meal_name_and_price
+        .card-footer.font-weight-bold= order.total_cost

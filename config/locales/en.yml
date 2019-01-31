@@ -10,7 +10,7 @@ en:
        log_out: Log out
        menus: Menus
        items: Items
-       today_menu: Today menu
+       my_orders: My orders
        new_order: New order
        sign_up: Sign up
        users: Users
@@ -31,7 +31,14 @@ en:
       first_meals: 'First meals:'
       main_meals: 'Main meals:'
       drinks: 'Drinks:'
+      total_orders_cost: 'Total orders cost:'
       back: << Back
+    orders:
+      orders: All orders
+      number: №
+      user: User
+      meals: Meals
+      total_cost: Total cost
     new:
       title: New menu
     form:
@@ -45,6 +52,8 @@ en:
     item_fields:
       remove_item: remove item
   orders:
+    index:
+      title: My orders
     new:
       title: New order
   users:

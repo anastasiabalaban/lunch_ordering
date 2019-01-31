@@ -1,0 +1,17 @@
+%h5.font-weight-bold.text-center= t('.orders')
+%table.table.table-hover
+  %thead
+    %th= t('.number')
+    %th= t('.user')
+    %th= t('.meals')
+    %th= t('.total_cost')
+  %tbody
+    - orders.each.with_index(1) do |order, index|
+      %tr
+        %td= index
+        %td= order.user_name
+        %td
+          %ul
+            - order.meals.each do |meal|
+              %li= meal.item_name
+        %td= order.total_cost
