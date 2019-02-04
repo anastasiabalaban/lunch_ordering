@@ -6,15 +6,9 @@ FactoryBot.define do
 
     user
 
-    # trait :with_meals_orders do
-    #   after(:create) do |order|
-    #     create_list(:meals_order, 3, order: order)
-    #   end
-    # end
-
-    trait :with_first_meal do
+    trait :with_meals do
       after(:create) do |order|
-        order.meals << create(:meal, type.to_sym)
+        order.meals << create(:menu, :with_meals).meals
       end
     end
   end
