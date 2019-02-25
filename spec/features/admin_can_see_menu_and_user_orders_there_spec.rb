@@ -15,7 +15,7 @@ feature 'Admin can see menu and user orders there' do
     let!(:order)     { create(:order, :with_meals).decorate }
     let(:meal)       { order.meals.first }
     let(:menu)       { meal.menu }
-    let(:total_cost) { Menus::Show.new(menu).total_order_cost }
+    let(:total_cost) { Menus::Show.new(menu).total_orders_cost }
 
     scenario 'admin can see total orders cost' do
       expect(page).to have_content(total_cost)
@@ -31,7 +31,7 @@ feature 'Admin can see menu and user orders there' do
       end
 
       scenario 'total cost' do
-        expect(page).to have_content(order.total_cost)
+        expect(page).to have_content(order.human_total_cost)
       end
     end
   end

@@ -2,17 +2,18 @@
 
 module Orders
   class Index
-    def initialize(user = nil)
+    def initialize(user)
       @user = user
     end
 
     def orders
-      @orders ||= Order.includes(:meals).where(user: user)
-                       .order(created_at: :desc).decorate
+      @orders ||= user_orders.includes(:meals).order(created_at: :desc).decorate
     end
 
     private
 
     attr_reader :user
+
+    delegate :orders, to: :user, allow_nil: true, prefix: true
   end
 end

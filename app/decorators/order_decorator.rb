@@ -5,12 +5,12 @@ class OrderDecorator < ApplicationDecorator
 
   decorates_association :meals
 
-  def total_cost
-    "$#{count_total_cost}"
+  def human_total_cost
+    total_cost.to_s(:currency)
   end
 
-  def count_total_cost
-    meals.inject(0) { |cost, meal| cost += meal.price }
+  def total_cost
+    meals.pluck(:price).compact.reduce(0, :+)
   end
 
   def human_created_at

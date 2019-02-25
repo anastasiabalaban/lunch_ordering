@@ -24,7 +24,7 @@ feature 'User can see his orders' do
     end
 
     scenario "order's total cost" do
-      expect(page).to have_content(order.total_cost)
+      expect(page).to have_content(order.human_total_cost)
     end
   end
 end

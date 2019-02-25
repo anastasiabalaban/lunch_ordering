@@ -31,7 +31,6 @@ en:
       first_meals: 'First meals:'
       main_meals: 'Main meals:'
       drinks: 'Drinks:'
-      total_orders_cost: 'Total orders cost:'
       back: << Back
     orders:
       orders: All orders
@@ -39,6 +38,7 @@ en:
       user: User
       meals: Meals
       total_cost: Total cost
+      total_orders_cost: 'Total orders cost:'
     new:
       title: New menu
     form:

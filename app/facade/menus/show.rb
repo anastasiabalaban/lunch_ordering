@@ -22,11 +22,11 @@ module Menus
 
     def orders
       @orders ||= Order.joins(:meals).includes(:user)
-                       .where(meals: { menu: menu }).decorate.uniq
+                       .where(meals: { menu: menu }).distinct.decorate
     end
 
-    def total_order_cost
-      orders.inject(0) { |cost, order| cost += order.count_total_cost }
+    def total_orders_cost
+      orders.map(&:total_cost).compact.reduce(0, :+).to_s(:currency)
     end
 
     private

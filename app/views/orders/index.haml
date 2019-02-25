@@ -8,4 +8,4 @@
           %ul
             - order.meals.each do |meal|
               %li= meal.meal_name_and_price
-        .card-footer.font-weight-bold= order.total_cost
+        .card-footer.font-weight-bold= order.human_total_cost

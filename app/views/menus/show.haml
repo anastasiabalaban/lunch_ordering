@@ -11,7 +11,5 @@
 - @facade.drinks.each do |meal|
   %p= meal.meal_name_and_price
 - if current_user.admin?
-  = render 'orders', orders: @facade.orders
-  %h6.font-weight-bold= t('.total_orders_cost')
-  %p.font-weight-bold= @facade.total_order_cost
+  = render 'orders', facade: @facade
 = link_to t('.back'), :back, class: 'btn btn-light mt-2'

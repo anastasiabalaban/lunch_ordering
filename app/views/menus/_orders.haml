@@ -6,12 +6,7 @@
     %th= t('.meals')
     %th= t('.total_cost')
   %tbody
-    - orders.each.with_index(1) do |order, index|
-      %tr
-        %td= index
-        %td= order.user_name
-        %td
-          %ul
-            - order.meals.each do |meal|
-              %li= meal.item_name
-        %td= order.total_cost
+    - facade.orders.each.with_index(1) do |order, index|
+      = render 'order', index: index, order: order
+%h6.font-weight-bold= t('.total_orders_cost')
+%p.font-weight-bold= facade.total_orders_cost
