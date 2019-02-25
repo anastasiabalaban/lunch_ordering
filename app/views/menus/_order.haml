@@ -1,0 +1,8 @@
+%tr
+  %td= index
+  %td= order.user_name
+  %td
+    %ul
+      - order.meals.each do |meal|
+        %li= meal.item_name
+  %td= order.human_total_cost

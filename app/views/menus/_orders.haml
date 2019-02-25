@@ -1,0 +1,12 @@
+%h5.font-weight-bold.text-center= t('.orders')
+%table.table.table-hover
+  %thead
+    %th= t('.number')
+    %th= t('.user')
+    %th= t('.meals')
+    %th= t('.total_cost')
+  %tbody
+    - facade.orders.each.with_index(1) do |order, index|
+      = render 'order', index: index, order: order
+%h6.font-weight-bold= t('.total_orders_cost')
+%p.font-weight-bold= facade.total_orders_cost
